@@ -6,7 +6,9 @@ const { Schema } = mongoose; //Objeto Schema para realizar diferentes operacione
 const UserSchema = new Schema({
     //atributos con sus validaciones
     email: {type:String, required:true, unique:true}, 
-    password: {type:String, required:true}
+    password: {type:String, required:true},
+    name: {type:String, required:true},
+    lastname: {type:String, required:true}
 });
 
 UserSchema.statics.authenticate = function (email, password, callback) {

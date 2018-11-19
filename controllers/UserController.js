@@ -15,7 +15,9 @@ AuthController.store = async function (req, res) {
     //obteniendo los datos del usuario
     let user = {
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        name: req.body.name,
+        lastname: req.body.lastname
     }
     /*alamcenando el usuario*/
     await User.create(user, (error, user) => { 
@@ -27,7 +29,9 @@ AuthController.store = async function (req, res) {
             let data = {
                 userId: user._id.toString(),
                 email: user.email,
-                password: user.password
+                password: user.password,
+                name: user.name,
+                lastname: user.lastname
             }
             //hash es el mé que nos permite encriptar el password
             //con 10 le indicamos cuantas veces realizara la encriptación
